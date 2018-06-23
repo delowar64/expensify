@@ -1,0 +1,21 @@
+@import "base/base";
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+}
+
+.header{
+    background: #2188b6;
+    padding: 30px;
+    color: #ffffff;
+    h3{
+        font-size: 40px;
+        max-width: 640px;
+        margin: 0 auto;
+    }
+}
