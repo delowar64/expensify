@@ -1,6 +1,6 @@
 node_modules/
 .vscode/
-public/bundle.js
-public/bundle.js.map
-public/main.css
-public/main.css.map
+public/dist/bundle.js
+public/dist/bundle.js.map
+public/dist/main.css
+public/dist/main.css.map
