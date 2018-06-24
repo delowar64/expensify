@@ -1,5 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 // module export
 
@@ -9,6 +11,16 @@ module.exports = (env) => {
         output: {
             path: path.join(__dirname, 'public'),
             filename: 'bundle.js'
+        },
+        optimization: {
+            minimizer: [
+                new UglifyJsPlugin({
+                    cache: true,
+                    parallel: true,
+                    sourceMap: true
+                }),
+                new OptimizeCSSAssetsPlugin({})
+            ]
         },
         module: {
             rules: [{
@@ -20,16 +32,10 @@ module.exports = (env) => {
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true
-                        }
+                        loader: 'css-loader'
                     },
                     {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true
-                        }
+                        loader: 'sass-loader'
                     }
                 ]
             }]
